@@ -4,6 +4,8 @@
 
 #include <vector>
 
+class IStrategy;
+
 class Tournament
 {
 public:
@@ -11,6 +13,10 @@ public:
 
 	void Simulate();
 
+	void PlayMatch(IStrategy*, IStrategy*);
+
 	std::vector<Ranking> GenerateFinalRankingByPoint() const;
 	std::vector<Ranking> GenerateFinalRankingByWinDrawLoss() const;
+private:
+	std::vector<IStrategy*> strategies;
 };
